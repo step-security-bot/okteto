@@ -27,6 +27,7 @@ import (
 	"github.com/okteto/okteto/cmd/deploy"
 	"github.com/okteto/okteto/cmd/destroy"
 	initCMD "github.com/okteto/okteto/cmd/init"
+	"github.com/okteto/okteto/cmd/logs"
 	"github.com/okteto/okteto/cmd/namespace"
 	"github.com/okteto/okteto/cmd/pipeline"
 	"github.com/okteto/okteto/cmd/preview"
@@ -122,6 +123,7 @@ func main() {
 	root.AddCommand(cmd.Update())
 	root.AddCommand(deploy.Deploy(ctx))
 	root.AddCommand(destroy.Destroy(ctx))
+	root.AddCommand(logs.Logs(ctx))
 	root.AddCommand(generateFigSpec.NewCmdGenFigSpec())
 	err := root.Execute()
 
